@@ -15,5 +15,10 @@ namespace ProjectWork.Controllers
         {
             return View(DaoCorso.GetInstance().Read());
         }
+
+        public IActionResult HomeUser()
+        {
+            return View(DaoCorso.GetInstance().Read());
+        }
     }
 }

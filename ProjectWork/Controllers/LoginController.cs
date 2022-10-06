@@ -39,7 +39,7 @@ namespace ProjectWork.Controllers
                 {
                     return Redirect("/Corso/HomeAdmin");
                 }
-                return Redirect("/Corso/MainUser");
+                return Redirect("/Corso/HomeUser");
             }
             else
                 return Redirect("Index");
