@@ -16,6 +16,11 @@ namespace ProjectWork.Controllers
             return View(DaoCorso.GetInstance().Read());
         }
 
+        public IActionResult HomeAdminLike(string valore)
+        {
+            return View(DaoCorso.GetInstance().ReadLike(valore));
+        }
+
         public IActionResult HomeUser()
         {
             return View(DaoCorso.GetInstance().Read());

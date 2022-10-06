@@ -24,13 +24,13 @@
 			<a href="#" class="nav-item nav-link">Home</a>		
 			<a href="#" class="nav-item nav-link">Contatti</a>
         </div>
-        <div class="ml-auto mr-auto mt-3" id="search-align">
+        <div id="search-align" class="ml-auto mr-auto mt-3" action="/Corso/HomeAdmin/Valore" method="get">
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Cerca" name="valore" aria-label="Search">
             </form>
         </div>
 		<div class="navbar-nav action-buttons ml-auto">
-			<a href="/Login/Index" class="nav-item nav-link">Logout</a>
+			<a href="/Login/Index" class="nav-item nav-link">Logout</a>	
 		</div>
 	</div>
 </nav>
@@ -77,7 +77,8 @@
                   <h6 class="text-success">@(((Corso)p).Durata) Ore</h6>
                   <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
                   <div class="d-flex flex-column mt-4">
-                    <button class="btn btn-primary btn-sm" type="button">Prenota</button>
+                    <button class="btn btn-primary btn-sm" type="button">Modifica</button>
+                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Elimina</button>
                   </div>
                 </div>
               </div>
