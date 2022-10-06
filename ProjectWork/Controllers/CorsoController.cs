@@ -30,5 +30,10 @@ namespace ProjectWork.Controllers
         {
             return View(DaoCorso.GetInstance().ReadLike(valore));
         }
+
+        public IActionResult HomeTerzo()
+        {
+            return View(DaoCorso.GetInstance().Read());
+        }
     }
 }
