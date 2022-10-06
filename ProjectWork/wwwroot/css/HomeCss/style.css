@@ -1,0 +1,26 @@
+@media (max-width: 767.98px) { .border-sm-start-none { border-left: none !important; } }
+
+
+body{
+    background-color: rgb(238, 238, 238);
+}
+
+footer{
+    background-color: rgb(61, 132, 209);
+}
+
+.titoloCorso{
+    font-size: 24px;
+}
+
+.docente{
+    font-size: 14px;
+}
+
+#prezzo{
+    font-size: 36px;
+}
+
+.text-success{
+    font-size: 24px;
+}

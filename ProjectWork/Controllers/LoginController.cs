@@ -37,9 +37,9 @@ namespace ProjectWork.Controllers
 
                 if (utenteLoggato.Ruolo.ToLower() == "amministratore")
                 {
-                    return Redirect("INSERIMENTO CONTROLLER CORSO/METODO");
+                    return Redirect("/Corso/HomeAdmin");
                 }
-                return Redirect("INSERIMENTO CONTROLLER CORSO/METODO");
+                return Redirect("/Corso/MainUser");
             }
             else
                 return Redirect("Index");
