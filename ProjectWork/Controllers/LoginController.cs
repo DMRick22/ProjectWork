@@ -39,6 +39,10 @@ namespace ProjectWork.Controllers
                 {
                     return Redirect("/Corso/HomeAdmin");
                 }
+                if (utenteLoggato.Ruolo.ToLower() == "terzo")
+                {
+                    return Redirect("/Corso/HomeTerzo");
+                }
                 return Redirect("/Corso/HomeUser");
             }
             else
