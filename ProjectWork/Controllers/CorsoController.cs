@@ -35,5 +35,14 @@ namespace ProjectWork.Controllers
         {
             return View(DaoCorso.GetInstance().Read());
         }
+
+        public IActionResult Elimina(int id)
+        {
+            if(DaoCorso.GetInstance().Delete(id))
+            {
+                return Redirect("/Corso/HomeAdmin");
+            }
+            return Content("Eliminazione fallita, ricaricare la pagina e controllare i dettagli");
+        }
     }
 }
