@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <Reference Include="Utility">
-      <HintPath>..\..\..\Settimana 9 - CRUD - DLL\Utility\bin\Debug\net6.0\Utility.dll</HintPath>
+      <HintPath>C:\Users\mimmo\OneDrive\Desktop\Utility\bin\Debug\net6.0\Utility.dll</HintPath>
     </Reference>
   </ItemGroup>
 
