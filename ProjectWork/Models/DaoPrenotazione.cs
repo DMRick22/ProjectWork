@@ -54,6 +54,11 @@ namespace ProjectWork.Models
         {
             return db.Update($"DELETE FROM Prenotazioni WHERE id = {id}");
         }
+        
+        public bool DeleteAfterCourse(int id)
+        {
+            return db.Update($"DELETE FROM Prenotazioni WHERE idCorsi = {id}");
+        }
 
         public bool InsertOrdine(Entity e, int utente)
         {
