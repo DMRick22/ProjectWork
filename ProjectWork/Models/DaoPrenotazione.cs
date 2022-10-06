@@ -63,10 +63,10 @@ namespace ProjectWork.Models
         public bool InsertOrdine(Entity e, int utente)
         {
             return db.Update($"INSERT INTO Prenotazioni " +
-                             $"(dataprenotazione,idutenti,idlibri) " +
+                             $"(dataprenotazione,idutenti,idcorsi) " +
                              $"VALUES " +
-                             $"('{((Prenotazione)e).DataPrenotazione:yyyy-MM-dd}' ," +
-                             $"{utente}, {((Prenotazione)e).IdCorsi} )");
+                             $"('{((Prenotazione)e).DataPrenotazione:yyyy-MM-dd}'," +
+                             $"{utente},{((Prenotazione)e).IdCorsi})");
         }
     }
 }
