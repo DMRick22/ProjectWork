@@ -18,12 +18,13 @@ namespace ProjectWork.Controllers
 
         public IActionResult NuovaPrenotazione(int id)
         {
+            int utenteLoggato = LoginController.utenteLoggato.Id;
             Prenotazione p = new Prenotazione();
             p.DataPrenotazione = DateTime.Today;
-            p.IdUtenti = LoginController.utenteLoggato.Id;
+            p.IdUtenti = utenteLoggato;
             p.IdCorsi = id;
 
-            if (DaoPrenotazione.GetInstance().InsertOrdine(p, LoginController.utenteLoggato.Id))
+            if (DaoPrenotazione.GetInstance().InsertOrdine(p, utenteLoggato))
             {
                 return Redirect("/Corso/HomeUser");
             }
