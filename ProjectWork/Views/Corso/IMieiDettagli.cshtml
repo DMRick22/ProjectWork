@@ -1,5 +1,5 @@
 ﻿﻿@using ProjectWork.Models
-@model List<Utility.Entity>
+@model Utility.Entity
 
 <html lang="en">
 <head>
@@ -47,26 +47,28 @@
 
     <div class="container my-3">
 
-            <h1>Prenotazioni</h1>
+            <h1>I Miei Dettagli</h1>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Numero Ordine</th>
-                        <th scope="col">Data Iscrizione</th>
-                        <th scope="col">Corso</th> 
-                       
-
+                        <th scope="col">Nome</th>
+                        <th scope="col">Cognome</th>
+                        <th scope="col">Data di nascita</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Ruolo</th>
+                        <th scope="col">Ore Totali dei corsi</th>
                     </tr>
-                    @foreach (var p in @Model)
-                    {
+
                         <tr>
-                            <td>@(((Prenotazione)p).Id)</td>
-                            <td>@((((Prenotazione)p).DataPrenotazione).ToShortDateString())</td>
-                            <td>@(((Prenotazione)p).IdCorsi)</td>
+                            <td>@(((Utente)Model).Nome)</td>
+                            <td>@(((Utente)Model).Cognome)</td>
+                            <td>@((((Utente)Model).Dob).ToShortDateString())</td>
+                            <td>@(((Utente)Model).Username)</td>
+                            <td>@(((Utente)Model).Ruolo)</td>
+                            <td>@(((Utente)Model).OreTotali)</td>
                             <td>
                         </tr>
 
-                    }
                 </thead>
                 <tbody id='tableBody'></tbody>
             </table>

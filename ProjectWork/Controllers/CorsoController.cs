@@ -68,5 +68,10 @@ namespace ProjectWork.Controllers
                 else
                     return Content("Inserimento Fallito");
         }
+
+        public IActionResult IMieiDettagli()
+        {
+            return View(DaoUtente.GetInstance().Cerca(LoginController.utenteLoggato.Id));
+        }
     }
 }
