@@ -17,7 +17,7 @@
 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <img src="~/Logo.jpg" width="80" height="80"/>
+        <a href="#" class="navbar-brand">Wi<b>Win</b></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,14 +39,14 @@
     </nav>
 
     <!-- form nuovo corso INSERIRE ACTION -->
-    <form action="/Corso/NuovoCorso" onsubmit="return ControlliNuovoCorso()">
+    <form action="" onsubmit="return ControlliNuovoCorso()">
         <div class="formNuovoCorso shadow-sm">
             <h3 class="text-center mb-3">Crea un nuovo corso</h3>
             <div class="row g-2">
                 <div class="col-md mb-4">
                     <div class="mb-3">
                         <label for="formFileSm" class="form-label">Copertina</label>
-                        <input class="form-control form-control-sm" id="copertina" name="copertina" type="text" required>
+                        <input class="form-control form-control-sm" id="copertina" type="text" required>
                     </div>
                 </div>
             </div>
@@ -54,21 +54,21 @@
             <div class="row g-2">
                 <div class="col-md mb-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome corso" required>
+                        <input type="text" class="form-control" id="nome" placeholder="Nome corso" required>
                         <label for="floatingInputGrid">Nome</label>
                     </div>
                 </div>
 
                 <div class="col-md">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="autore" name="autore" placeholder="Autore corso" required>
+                        <input type="text" class="form-control" id="autore" placeholder="Autore corso" required>
                         <label for="floatingInputGrid">Autore</label>
                     </div>
                 </div>
 
                 <div class="col-md">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="linguaggio" name="linguaggiotrattato" placeholder="Linguaggio trattato" required>
+                        <input type="text" class="form-control" id="linguaggio" placeholder="Linguaggio trattato" required>
                         <label for="floatingInputGrid">Linguaggio trattato</label>
                     </div>
                 </div>
@@ -77,38 +77,30 @@
             <div class="row g-2">
                 <div class="col-md mb-4">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="costo" name="costo" placeholder="Costo" min="0" required>
+                        <input type="number" class="form-control" id="costo" placeholder="Costo" min="0" required>
                         <label for="floatingInputGrid">Costo</label>
                     </div>
                 </div>
 
                 <div class="col-md">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="durata" name="durata" placeholder="Giorni" min="0" required>
+                        <input type="number" class="form-control" id="giorni" placeholder="Giorni" min="0" required>
                         <label for="floatingInputGrid">Giorni</label>
                     </div>
                 </div>
 
                 <div class="col-md">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="numerolezioni" name="numerolezioni" placeholder="Numero lezioni" min="0" required>
+                        <input type="number" class="form-control" id="lezioni" placeholder="Numero lezioni" min="0" required>
                         <label for="floatingInputGrid">Numero lezioni</label>
-                    </div>
-                </div>
-
-                <div class="col-md">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Categoria" required>
-                        <label for="floatingInputGrid">Categoria</label>
                     </div>
                 </div>
             </div>
 
             <div class="form-floating">
-                <textarea class="form-control mb-4" placeholder="Descrizione corso" name="descrizione" id="descrizione" required></textarea>
+                <textarea class="form-control mb-4" placeholder="Descrizione corso" id="descrizione" required></textarea>
                 <label for="floatingTextarea">Descrizione</label>
             </div>
-
 
             <div class="d-grid gap-2">
                 <button class="btn btn-primary" type="submit">INSERISCI</button>
@@ -140,10 +132,10 @@
                                     <div class="col-md-6 col-lg-6 col-xl-6">
                                         <h5 class="titoloCorso">Corso @(((Corso)p).Nome)</h5>
                                         <h6 class="docente">Autore - @(((Corso)p).Autore)</h6>
-                                         <div class="mb-2 text-muted small">
-                                                            <p class="text mb-4 mb-md-0">
-                                                             @(((Corso)p).Descrizione)
-                                                            </p>
+                                        <div class="mb-2 text-muted small">
+                                        <p class="text mb-4 mb-md-0">
+                                        @(((Corso)p).Descrizione)
+                                        </p>
                                         </div>
                                         <p class="text mb-4 mb-md-0">
                                             Linguaggi trattati: @(((Corso)p).LinguaggioTrattato)
@@ -156,7 +148,7 @@
                                         <h6 class="text-success">@(((Corso)p).Durata) Ore</h6>
                                         <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
                                         <div class="d-flex flex-column mt-4">
-                                            <button class="btn btn-primary btn-sm" type="button">Modifica</button>
+                                            <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#modalModifica">Modifica</button>
                                         </div>
                                     </div>
                                 </div>
@@ -165,6 +157,88 @@
                     </div>
                 </div>
         </section>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalModifica" tabindex="-1" aria-labelledby="modalModifica" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifica corso</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- action da inserire -->
+                        <form action="" onsubmit="return ControlliNuovoCorso()">
+                            <div class="row g-2">
+                                <div class="col-md mb-4">
+                                    <div class="mb-3">
+                                        <label for="formFileSm" class="form-label">Copertina</label>
+                                        <input class="form-control form-control-sm" id="copertina" type="text" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-2">
+                                <div class="col-md mb-4">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="nome" placeholder="Nome corso" required>
+                                        <label for="floatingInputGrid">Nome</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="autore" placeholder="Autore corso" required>
+                                        <label for="floatingInputGrid">Autore</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="linguaggio" placeholder="Linguaggio trattato" required>
+                                        <label for="floatingInputGrid">Linguaggio trattato</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-2">
+                                <div class="col-md mb-4">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="costo" placeholder="Costo" min="0" required>
+                                        <label for="floatingInputGrid">Costo</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="giorni" placeholder="Giorni" min="0" required>
+                                        <label for="floatingInputGrid">Giorni</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="lezioni" placeholder="Numero lezioni" min="0" required>
+                                        <label for="floatingInputGrid">Numero lezioni</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-floating">
+                                <textarea class="form-control mb-4" placeholder="Descrizione corso" id="descrizione" required></textarea>
+                                <label for="floatingTextarea">Descrizione</label>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                        <button type="button" class="btn btn-primary">Modifica</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
 
     <!-- footer -->
@@ -201,4 +275,4 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
-</html>                            
+</html>
