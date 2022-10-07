@@ -35,5 +35,38 @@ namespace ProjectWork.Controllers
         {
             return View(DaoCorso.GetInstance().Read());
         }
+
+        public IActionResult HomeTerzoLike(string valore)
+        {
+            return View(DaoCorso.GetInstance().ReadLike(valore));
+        }
+
+        public IActionResult Elimina(int id)
+        {
+            //VIENE FATTO UNA PRIMA ELIMINAZIONE DELLE PRENOTAZIONI, DOVE L'IDCORSO CORRISPONDE ALLA PRENOTAZIONE, UNA VOLTA ELIMINATI TUTTI GLI ORDINI, SI PROCEDE
+            //AD ELIMINARE IL CORSO STESSO
+            if (DaoCorso.GetInstance().Delete(id))
+            {
+                if (DaoPrenotazione.GetInstance().DeleteAfterCourse(id))
+                {
+                    return Redirect("/Corso/HomeAdmin");
+                }
+                return Redirect("/Corso/HomeAdmin");
+            }
+            return Content("Eliminazione fallita, ricaricare la pagina e controllare i dettagli");
+        }
+
+        public IActionResult NuovoCorso(Dictionary<string, string> parametri)
+        {
+            Corso c = new Corso();
+            c.FromDictionary(parametri);
+
+                if (DaoCorso.GetInstance().Insert(c))
+                {
+                    return Redirect("/Corso/HomeTerzo");
+                }
+                else
+                    return Content("Inserimento Fallito");
+        }
     }
 }

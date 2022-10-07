@@ -1,0 +1,201 @@
+﻿@using ProjectWork.Models
+@model List<Utility.Entity>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home - WiWin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/HomeCss/HomeTerzoStyle.css">
+    <script src="~/js/FormNuovoCorso.js"></script>
+</head>
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a href="#" class="navbar-brand">Wi<b>Win</b></a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link">Home</a>
+                <a href="#" class="nav-item nav-link">Contatti</a>
+            </div>
+            <div id="search-align" class="ml-auto mr-auto mt-3">
+                <form class="d-flex" role="search" action="/Corso/HomeTerzoLike/valore" method="get">
+                    <input class="form-control me-2" type="search" placeholder="Nome / Autore Corso" name="valore" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
+                </form>
+            </div>
+            <div class="navbar-nav action-buttons ml-auto">
+                <a href="/Login/Index" class="nav-item nav-link">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- form nuovo corso INSERIRE ACTION -->
+    <form action="/Corso/NuovoCorso" onsubmit="return ControlliNuovoCorso()">
+        <div class="formNuovoCorso shadow-sm">
+            <h3 class="text-center mb-3">Crea un nuovo corso</h3>
+            <div class="row g-2">
+                <div class="col-md mb-4">
+                    <div class="mb-3">
+                        <label for="formFileSm" class="form-label">Copertina</label>
+                        <input class="form-control form-control-sm" id="copertina" name="copertina" type="text" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-2">
+                <div class="col-md mb-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="nome" name="name" placeholder="Nome corso" required>
+                        <label for="floatingInputGrid">Nome</label>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="autore" name="autore" placeholder="Autore corso" required>
+                        <label for="floatingInputGrid">Autore</label>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="linguaggio" name="linguaggiotrattato" placeholder="Linguaggio trattato" required>
+                        <label for="floatingInputGrid">Linguaggio trattato</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-2">
+                <div class="col-md mb-4">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="costo" name="costo" placeholder="Costo" min="0" required>
+                        <label for="floatingInputGrid">Costo</label>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="durata" name="durata" placeholder="Giorni" min="0" required>
+                        <label for="floatingInputGrid">Giorni</label>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="numerolezioni" name="numerolezioni" placeholder="Numero lezioni" min="0" required>
+                        <label for="floatingInputGrid">Numero lezioni</label>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Categoria" required>
+                        <label for="floatingInputGrid">Categoria</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-floating">
+                <textarea class="form-control mb-4" placeholder="Descrizione corso" id="descrizione" name="descrizione" required></textarea>
+                <label for="floatingTextarea">Descrizione</label>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">INSERISCI</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- lista corsi-->
+    @foreach (var p in @Model)
+    {
+        <section>
+            <div class="container py-5">
+                <div class="row justify-content-center mb-3">
+                    <div class="col-md-12 col-xl-10">
+                        <div class="card shadow-sm border rounded-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                        <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                            <img src="@(((Corso)p).Copertina)"
+                                                 class="w-100" />
+                                            <a href="#!">
+                                                <div class="hover-overlay">
+                                                    <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-xl-6">
+                                        <h5 class="titoloCorso">Corso @(((Corso)p).Nome)</h5>
+                                        <h6 class="docente">Autore - @(((Corso)p).Autore)</h6>
+                                        <p class="text mb-4 mb-md-0">
+                                            Linguaggi trattati: @(((Corso)p).LinguaggioTrattato)
+                                        </p>
+                                                            <p class="text mb-4 mb-md-0">
+                                                            @(((Corso)p).Descrizione)
+                                                            </p>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                                        <div class="d-flex flex-row align-items-center mb-1">
+                                            <h4 class="mb-1 me-1" id="prezzo">@(((Corso)p).Costo) €</h4>
+                                        </div>
+                                        <h6 class="text-success">@(((Corso)p).Durata) Ore</h6>
+                                        <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
+                                        <div class="d-flex flex-column mt-4">
+                                            <button class="btn btn-primary btn-sm" type="button">Modifica</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    }
+
+    <!-- footer -->
+    <footer class="text-center text-white">
+        <!-- container -->
+        <div class="container-footer">
+
+            <hr class="mb-5" />
+
+            <!-- testo footer -->
+            <section class="mb-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                            distinctio earum repellat quaerat voluptatibus placeat nam,
+                            commodi optio pariatur est quia magnam eum harum corrupti
+                            dicta, aliquam sequi voluptate quas.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- copyright -->
+        <div class="text-center p-3"
+             style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2022 Copyright -
+            <a class="text-white" href="#">WiWin</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>                            

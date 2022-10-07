@@ -70,10 +70,10 @@ namespace ProjectWork.Models
         public bool Insert(Entity e)
         {
             return db.Update($"INSERT INTO Corsi " +
-                             $"(copertina,nome,autore,linguaggiotrattato,durata,numerolezioni,costo,categoria) " +
+                             $"(copertina,nome,autore,linguaggiotrattato,durata,numerolezioni,costo,categoria,descrizione) " +
                              $"VALUES " +
                              $"('{((Corso)e).Copertina}' , '{((Corso)e).Nome}', " +
-                             $"'{((Corso)e).Autore}', '{(((Corso)e).LinguaggioTrattato)}',{((Corso)e).Durata},{((Corso)e).NumeroLezioni},{((Corso)e).Costo},'{((Corso)e).Categoria}' )");
+                             $"'{((Corso)e).Autore}', '{(((Corso)e).LinguaggioTrattato)}',{((Corso)e).Durata},{((Corso)e).NumeroLezioni},{((Corso)e).Costo},'{((Corso)e).Categoria}','{(((Corso)e).Descrizione)}')");
         }
 
         public bool Update(Entity e)

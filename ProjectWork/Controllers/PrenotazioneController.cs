@@ -15,5 +15,20 @@ namespace ProjectWork.Controllers
         {
             return View(DaoPrenotazione.GetInstance().Read());
         }
+
+        public IActionResult NuovaPrenotazione(int id)
+        {
+            int utenteLoggato = LoginController.utenteLoggato.Id;
+            Prenotazione p = new Prenotazione();
+            p.DataPrenotazione = DateTime.Today;
+            p.IdUtenti = utenteLoggato;
+            p.IdCorsi = id;
+
+            if (DaoPrenotazione.GetInstance().InsertOrdine(p, utenteLoggato))
+            {
+                return Redirect("/Corso/HomeUser");
+            }
+            return Content($"Attenzione non è stato possibile procedere con l'inserimento della prenotazione corso con ID {id}.\n Contattare l'amministratore");
+        }
     }
 }

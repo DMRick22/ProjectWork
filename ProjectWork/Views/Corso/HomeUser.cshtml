@@ -67,6 +67,9 @@
                     <span>JPA</span>
                     <span class="text-primary"> • </span>
                     <span>Hibernate<br /></span>
+                    <p class="text mb-4 mb-md-0">
+                        @(((Corso)p).Descrizione)
+                    </p>
                   </div>
                   <p class="text mb-4 mb-md-0">
                     Linguaggi trattati: @(((Corso)p).LinguaggioTrattato)
@@ -79,7 +82,9 @@
                   <h6 class="text-success">@(((Corso)p).Durata) Ore</h6>
                   <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
                   <div class="d-flex flex-column mt-4">
-                    <button class="btn btn-primary btn-sm" type="button">Prenota</button>
+                      <form action="/Prenotazione/NuovaPrenotazione/@(((Corso)p).Id)" method="post"> 
+                    <button class="btn btn-primary btn-sm" button type="submit" onclick="return confirm('Procedere con la prenotazione del corso: @(((Corso)p).Nome)?')">Prenota</button>
+                      </form>
                   </div>
                 </div>
               </div>

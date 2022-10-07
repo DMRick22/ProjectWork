@@ -1,0 +1,44 @@
+﻿body {
+    background-color: rgb(238, 238, 238);
+}
+
+footer {
+    background-color: rgb(61, 132, 209);
+}
+
+.titoloCorso {
+    font-size: 24px;
+}
+
+.docente {
+    font-size: 14px;
+}
+
+#prezzo {
+    font-size: 36px;
+}
+
+.text-success {
+    font-size: 24px;
+}
+
+.formNuovoCorso {
+    background-color: white;
+    padding: 5%;
+    border-radius: 4px;
+    width: 928px;
+    height: auto;
+    margin: auto;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.titoloNuovoCorso {
+    color: rgb(71, 71, 71);
+    text-align: center;
+    margin-top: 20px;
+}
+
+#floatingTextarea {
+    height: 120px;
+}

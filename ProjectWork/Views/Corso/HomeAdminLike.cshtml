@@ -69,6 +69,9 @@
                     <span>Hibernate<br /></span>
                   </div>
                   <p class="text mb-4 mb-md-0">
+                        @(((Corso)p).Descrizione)
+                  </p>
+                  <p class="text mb-4 mb-md-0">
                     Linguaggi trattati: @(((Corso)p).LinguaggioTrattato)
                   </p>
                 </div>
@@ -80,7 +83,9 @@
                   <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
                   <div class="d-flex flex-column mt-4">
                     <button class="btn btn-primary btn-sm" type="button">Modifica</button>
-                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Elimina</button>
+                    <form action="/Corso/Elimina/@(((Corso)p).Id)" method="post">
+                    <button class="btn btn-outline-primary btn-sm mt-2" button type="submit" onclick="return confirm('Sei sicuro di voler eliminare il corso: @(((Corso)p).Nome)\nEliminare il corso comporterà un annullamento della prenotazione degli utenti')">Elimina</button>
+                    </form>
                   </div>
                 </div>
               </div>
