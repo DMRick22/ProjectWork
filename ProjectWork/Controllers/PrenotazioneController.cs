@@ -36,5 +36,11 @@ namespace ProjectWork.Controllers
             }
             return Content($"Attenzione non è stato possibile procedere con l'inserimento della prenotazione corso con ID {id}.\n Contattare l'amministratore");
         }
+
+        public IActionResult EliminaPrenotazione(int id)
+        {
+            //TODO INSERIRE NEI DAO ELIMINAZIONE ORE DEL CORSO DALL'UTENTE
+            return null;
+        }
     }
 }

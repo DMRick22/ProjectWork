@@ -62,7 +62,7 @@
                         <tr>
                             <td>@(((Prenotazione)p).Id)</td>
                             <td>@((((Prenotazione)p).DataPrenotazione).ToShortDateString())</td>
-                            <td>@(((Prenotazione)p).IdCorsi)</td>
+                            <td><a href="/Corso/DettagliCorso/@(((Prenotazione)p).IdCorsi)">@(((Prenotazione)p).IdCorsi)</a></td>
                             <td>
                         </tr>
 

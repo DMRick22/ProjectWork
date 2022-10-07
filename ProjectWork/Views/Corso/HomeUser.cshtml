@@ -22,7 +22,7 @@
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<div class="navbar-nav">
 			<a href="#" class="nav-item nav-link">Home</a>		
-			<a href="#" class="nav-item nav-link">Contatti</a>
+			<a href="/Corso/Contatti" class="nav-item nav-link">Contatti</a>
             <a href="/Prenotazione/ElencoOrdiniUtente" class="nav-item nav-link">Prenotazioni</a>
             <a href="/Corso/IMieiDettagli" class="nav-item nav-link">I Miei Dettagli</a>
         </div>
@@ -81,6 +81,7 @@
                     <h4 class="mb-1 me-1" id="prezzo">@(((Corso)p).Costo) €</h4>
                   </div>
                   <h6 class="text-success">@(((Corso)p).Durata) Ore</h6>
+
                   <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
                   <div class="d-flex flex-column mt-4">
                       <form action="/Prenotazione/NuovaPrenotazione/@(((Corso)p).Id)" method="post"> 

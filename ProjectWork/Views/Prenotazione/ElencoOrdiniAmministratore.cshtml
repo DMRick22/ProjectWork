@@ -61,10 +61,10 @@
                     {
                         <tr>
                             <td>@(((Prenotazione)p).Id)</td>
-                            <td>@(((Prenotazione)p).IdCorsi)</td>
+                            <td><a href="/Corso/DettagliCorso/@(((Prenotazione)p).IdCorsi)">@(((Prenotazione)p).IdCorsi)</a></td>
                             <td>@(((Prenotazione)p).IdUtenti)</td>
                             <td>@((((Prenotazione)p).DataPrenotazione).ToShortDateString())</td>
-                            <td><a href="/Corso/EliminaOrdine/?id=@p.Id&idlibri=@(((Prenotazione)p).IdCorsi)" onclick="return confirm('Procedere con la eliminazione?')">Elimina</a>
+                            <td><a href="/Corso/EliminaPrenotazione/@(((Prenotazione)p).IdCorsi)" onclick="return confirm('Procedere con la eliminazione?')">Elimina</a>
                             <td>
                         </tr>
 
