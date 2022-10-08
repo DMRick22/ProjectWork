@@ -73,7 +73,7 @@ namespace ProjectWork.Controllers
             if (DaoUtente.GetInstance().Inserisci(u))
                 return Redirect("/Login/Index");
             else
-                return Content("Registrazione fallita. Rincontrollare i dati inseriti e riprovare");
+                return Redirect("/Prenotazione/Error");
         }
     }
 }

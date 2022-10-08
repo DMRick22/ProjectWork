@@ -31,7 +31,7 @@
             <div class="navbar-nav">
                 <a href="/Corso/HomeAdmin" class="nav-item nav-link">Home</a>
                 <a href="/Corso/ContattiAdmin" class="nav-item nav-link">Contatti</a>
-                <a href="#" class="nav-item nav-link">Prenotazioni Utenti</a>
+                <a href="/Prenotazione/ElencoOrdiniAmministratore" class="nav-item nav-link">Prenotazioni Utenti</a>
             </div>
             <div class="ml-auto mr-auto mt-3">
             </div>
@@ -64,7 +64,7 @@
                             <td><a href="/Corso/DettagliCorsoAdmin/@(((Prenotazione)p).IdCorsi)">@(((Prenotazione)p).IdCorsi)</a></td>
                             <td>@(((Prenotazione)p).IdUtenti)</td>
                             <td>@((((Prenotazione)p).DataPrenotazione).ToShortDateString())</td>
-                            <td><a href="/Corso/EliminaPrenotazione/@(((Prenotazione)p).IdCorsi)" onclick="return confirm('Procedere con la eliminazione?')">Elimina</a>
+                            <td><a href="/Prenotazione/EliminaPrenotazione/@(((Prenotazione)p).Id)" onclick="return confirm('Procedere con la eliminazione?\nSi elimineranno anche le ore del corso associate allo user con Id @(((Prenotazione)p).IdUtenti)')">Elimina</a>
                             <td>
                         </tr>
 

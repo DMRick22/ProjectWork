@@ -34,13 +34,22 @@ namespace ProjectWork.Controllers
                     }
                 }
             }
-            return Content($"Attenzione non è stato possibile procedere con l'inserimento della prenotazione corso con ID {id}.\nContattare l'amministratore");
+            return Redirect($"/Prenotazione/Error");
+        }
+
+        public IActionResult Error()
+        {
+            return View();
         }
 
         public IActionResult EliminaPrenotazione(int id)
         {
-            //TODO INSERIRE NEI DAO ELIMINAZIONE ORE DEL CORSO DALL'UTENTE
-            return null;
+            if (DaoPrenotazione.GetInstance().RimuoviOreDopoEliminazione(id) && DaoPrenotazione.GetInstance().Delete(id))
+            {
+                return Redirect("/Prenotazione/ElencoOrdiniAmministratore");
+            }
+            else
+                return Content("/Prenotazione/Error");
         }
     }
 }

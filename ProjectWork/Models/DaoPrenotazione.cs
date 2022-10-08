@@ -1,4 +1,5 @@
-﻿using Utility;
+﻿using ProjectWork.Controllers;
+using Utility;
 
 namespace ProjectWork.Models
 {
@@ -101,7 +102,50 @@ namespace ProjectWork.Models
 
              List<Dictionary<string, string>> tabella = db.Read($"SELECT * FROM Prenotazioni WHERE idUtenti = {idutenti} AND idCorsi = {idcorsi}");
 
+
             if (tabella.Count == 0)
+                return true;
+            else
+                return false;
+        }
+
+        //IL METODO VA A CREARE I 3 OGGETTI, NELLA PRIMA PARTE SONO NECESSARI PER RECUPERARE LE INFORMAZIONI, UNA VOLTA RECUPERARE INFO DI CORSO E UTENTE,
+        //SI PROCEDE A SOTTRARRE LA DURATA DI QUEL CORSO AL TOTALE ORE DI QUEL UTENTE, IN CASO DI SUCCESSO SI PASSERà AL SUCCESSIVO METODO NEL PrenotazioneController
+        //E SI ELIMINERà LA PRENOTAZIONE ASSOCIATA
+
+        public bool RimuoviOreDopoEliminazione(int idprenotazione)
+        {
+            Prenotazione p = new Prenotazione();
+
+            List<Dictionary<string, string>> tabellaPrenotazione = db.Read($"SELECT * FROM Prenotazioni WHERE id = {idprenotazione}");
+
+            foreach (Dictionary<string, string> riga in tabellaPrenotazione)
+            {
+                p.FromDictionary(riga);
+            }
+
+            Corso c = new Corso();
+
+            List<Dictionary<string, string>> tabella = db.Read($"SELECT * FROM Corsi WHERE id = {p.IdCorsi}");
+
+            foreach (Dictionary<string, string> riga in tabella)
+            {
+                c.FromDictionary(riga);
+            }
+
+            Utente u = new Utente();
+
+            List<Dictionary<string, string>> tabella2 = db.Read($"SELECT * FROM Utenti WHERE id = {p.IdUtenti}");
+
+            foreach (Dictionary<string, string> riga in tabella2)
+            {
+                u.FromDictionary(riga);
+            }
+
+            int oreAggiornate = 0;
+            oreAggiornate = (u.OreTotali - c.Durata);
+
+            if (db.Update($"UPDATE Utenti SET oreTotali = {oreAggiornate} WHERE id = {p.IdUtenti}"))
                 return true;
             else
                 return false;

@@ -53,7 +53,7 @@ namespace ProjectWork.Controllers
                 }
                 return Redirect("/Corso/HomeAdmin");
             }
-            return Content("Eliminazione fallita, ricaricare la pagina e controllare i dettagli");
+            return Redirect("/Prenotazione/Error");
         }
 
         public IActionResult NuovoCorso(Dictionary<string, string> parametri)
@@ -66,7 +66,7 @@ namespace ProjectWork.Controllers
                     return Redirect("/Corso/HomeTerzo");
                 }
                 else
-                    return Content("Inserimento Fallito");
+                    return Redirect("/Prenotazione/Error");
         }
 
         public IActionResult IMieiDettagli()
