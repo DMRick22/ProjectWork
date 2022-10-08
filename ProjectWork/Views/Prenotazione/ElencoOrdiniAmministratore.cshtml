@@ -30,8 +30,8 @@
         <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
             <div class="navbar-nav">
                 <a href="/Corso/HomeAdmin" class="nav-item nav-link">Home</a>
-                <a href="#" class="nav-item nav-link">Contatti</a>
-                <a href="#" class="nav-item nav-link">Iscrizioni</a>
+                <a href="/Corso/ContattiAdmin" class="nav-item nav-link">Contatti</a>
+                <a href="#" class="nav-item nav-link">Prenotazioni Utenti</a>
             </div>
             <div class="ml-auto mr-auto mt-3">
             </div>
@@ -61,7 +61,7 @@
                     {
                         <tr>
                             <td>@(((Prenotazione)p).Id)</td>
-                            <td><a href="/Corso/DettagliCorso/@(((Prenotazione)p).IdCorsi)">@(((Prenotazione)p).IdCorsi)</a></td>
+                            <td><a href="/Corso/DettagliCorsoAdmin/@(((Prenotazione)p).IdCorsi)">@(((Prenotazione)p).IdCorsi)</a></td>
                             <td>@(((Prenotazione)p).IdUtenti)</td>
                             <td>@((((Prenotazione)p).DataPrenotazione).ToShortDateString())</td>
                             <td><a href="/Corso/EliminaPrenotazione/@(((Prenotazione)p).IdCorsi)" onclick="return confirm('Procedere con la eliminazione?')">Elimina</a>

@@ -74,12 +74,27 @@ namespace ProjectWork.Controllers
             return View(DaoUtente.GetInstance().Cerca(LoginController.utenteLoggato.Id));
         }
 
-        public IActionResult Contatti()
+        public IActionResult ContattiUser()
         {
             return View();
         }
 
-        public IActionResult DettagliCorso(int id)
+        public IActionResult ContattiAdmin()
+        {
+            return View();
+        }
+
+        public IActionResult ContattiTerzo()
+        {
+            return View();
+        }
+
+        public IActionResult DettagliCorsoAdmin(int id)
+        {
+            return View(DaoCorso.GetInstance().Find(id));
+        }
+
+        public IActionResult DettagliCorsoUser(int id)
         {
             return View(DaoCorso.GetInstance().Find(id));
         }

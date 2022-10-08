@@ -34,7 +34,7 @@ namespace ProjectWork.Controllers
                     }
                 }
             }
-            return Content($"Attenzione non è stato possibile procedere con l'inserimento della prenotazione corso con ID {id}.\n Contattare l'amministratore");
+            return Content($"Attenzione non è stato possibile procedere con l'inserimento della prenotazione corso con ID {id}.\nContattare l'amministratore");
         }
 
         public IActionResult EliminaPrenotazione(int id)
