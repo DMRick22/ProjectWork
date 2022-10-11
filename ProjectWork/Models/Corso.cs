@@ -12,7 +12,7 @@ namespace ProjectWork.Models
         public string LinguaggioTrattato { get; set; }
         public int Durata { get; set; }
         public int NumeroLezioni { get; set; }
-        public double Costo { get; set; }
+        public int Costo { get; set; }
         public string Categoria { get; set; }
         public string Descrizione { get; set; }
     }

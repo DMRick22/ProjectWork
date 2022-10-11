@@ -78,16 +78,16 @@ namespace ProjectWork.Models
 
         public bool Update(Entity e)
         {
+
             return db.Update(
                              $"UPDATE Corsi SET " +
                              $"copertina = '{((Corso)e).Copertina}', " +
                              $"nome = '{((Corso)e).Nome}', " +
                              $"autore = '{((Corso)e).Autore}', " +
                              $"linguaggiotrattato = '{((Corso)e).LinguaggioTrattato}', " +
-                             $"durata = '{((Corso)e).Durata}', " +
-                             $"numerolezioni = '{((Corso)e).NumeroLezioni}', " +
-                             $"costo = '{((Corso)e).Costo}', " +
-                             $"categoria = '{((Corso)e).Categoria}' " +
+                             $"durata = {((Corso)e).Durata}, " +
+                             $"numerolezioni = {((Corso)e).NumeroLezioni}, " +
+                             $"costo = {((Corso)e).Costo} " +
                              $"WHERE id = {e.Id}"
                              );
         }

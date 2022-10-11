@@ -98,5 +98,23 @@ namespace ProjectWork.Controllers
         {
             return View(DaoCorso.GetInstance().Find(id));
         }
+
+        public IActionResult FormModifica(int id)
+        {
+            Corso c = (Corso)DaoCorso.GetInstance().Find(id);
+
+            return View(c);
+        }
+
+        public IActionResult ModificaProdotto(Dictionary<string, string> parametri)
+        {
+            Corso c = new Corso();
+            c.FromDictionary(parametri);
+
+            if (DaoCorso.GetInstance().Update(c))
+                return Redirect("/Corso/HomeTerzo");
+            else
+                return Redirect("/Prenotazione/Error");
+        }
     }
 }

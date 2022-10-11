@@ -1,5 +1,5 @@
 ﻿@using ProjectWork.Models
-@model List<Utility.Entity>
+@model ProjectWork.Models.Corso
 
 <html lang="en">
 <head>
@@ -17,7 +17,7 @@
 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a href="#" class="navbar-brand">Win<b>Win</b></a>
+        <a href="#" class="navbar-brand">Wi<b>Win</b></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,15 +38,17 @@
         </div>
     </nav>
 
-    <!-- form nuovo corso INSERIRE ACTION -->
-    <form action="" onsubmit="return ControlliNuovoCorso()">
+    <!-- form modifica corso -->
+    <form action="/Corso/ModificaProdotto" onsubmit="return ControlliNuovoCorso()">
         <div class="formNuovoCorso shadow-sm">
-            <h3 class="text-center mb-3">Crea un nuovo corso</h3>
+            <h3 class="text-center mb-3">Modifica il corso</h3>
             <div class="row g-2">
+
+
                 <div class="col-md mb-4">
                     <div class="mb-3">
                         <label for="formFileSm" class="form-label">Copertina</label>
-                        <input class="form-control form-control-sm" id="copertina" type="text" required>
+                        <input class="form-control form-control-sm" id="copertina" name="copertina" type="text" value="@Model.Copertina" required>
                     </div>
                 </div>
             </div>
@@ -54,21 +56,21 @@
             <div class="row g-2">
                 <div class="col-md mb-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="nome" placeholder="Nome corso" required>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome corso" value="@Model.Nome" required>
                         <label for="floatingInputGrid">Nome</label>
                     </div>
                 </div>
 
                 <div class="col-md">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="autore" placeholder="Autore corso" required>
+                        <input type="text" class="form-control" id="autore" name="autore" placeholder="Autore corso" value="@Model.Autore" required>
                         <label for="floatingInputGrid">Autore</label>
                     </div>
                 </div>
 
                 <div class="col-md">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="linguaggio" placeholder="Linguaggio trattato" required>
+                        <input type="text" class="form-control" id="linguaggiotrattato" name="linguaggiotrattato" placeholder="Linguaggio trattato" value="@Model.LinguaggioTrattato" required>
                         <label for="floatingInputGrid">Linguaggio trattato</label>
                     </div>
                 </div>
@@ -77,91 +79,43 @@
             <div class="row g-2">
                 <div class="col-md mb-4">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="costo" placeholder="Costo" min="0" required>
+                        <input type="text" class="form-control" id="costo" name="costo" value="@Model.Costo" required>
                         <label for="floatingInputGrid">Costo</label>
                     </div>
                 </div>
 
                 <div class="col-md">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="giorni" placeholder="Giorni" min="0" required>
+                        <input type="number" class="form-control" id="durata" name="durata" placeholder="Giorni" min="0" value="@Model.Durata" required>
                         <label for="floatingInputGrid">Giorni</label>
                     </div>
                 </div>
 
                 <div class="col-md">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="lezioni" placeholder="Numero lezioni" min="0" required>
+                        <input type="number" class="form-control" id="numerolezioni" name="numerolezioni" placeholder="Numero lezioni" value="@Model.NumeroLezioni" min="0" required>
                         <label for="floatingInputGrid">Numero lezioni</label>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="id" name="id" value="@Model.Id" readonly required>
+                        <label for="floatingInputGrid">Corso Id</label>
                     </div>
                 </div>
             </div>
 
             <div class="form-floating">
-                <textarea class="form-control mb-4" placeholder="Descrizione corso" id="descrizione" required></textarea>
+                <input textarea class="form-control mb-4" type="text" name="descrizione" id="descrizione" value="@Model.Descrizione" required></textarea>
                 <label for="floatingTextarea">Descrizione</label>
             </div>
 
             <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="submit">INSERISCI</button>
+                <button class="btn btn-primary" type="submit">MODIFICA</button>
             </div>
         </div>
     </form>
-
-    <!-- lista corsi-->
-    @foreach (var p in @Model)
-    {
-        <section>
-            <div class="container py-5">
-                <div class="row justify-content-center mb-3">
-                    <div class="col-md-12 col-xl-10">
-                        <div class="card shadow-sm border rounded-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                                        <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                                            <img src="@(((Corso)p).Copertina)"
-                                                 class="w-100" />
-                                            <a href="#!">
-                                                <div class="hover-overlay">
-                                                    <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-6">
-                                        <h5 class="titoloCorso">Corso @(((Corso)p).Nome)</h5>
-                                        <h6 class="docente">Autore - @(((Corso)p).Autore)</h6>
-                                        <div class="mb-2 text-muted small">
-                                        <p class="text mb-4 mb-md-0">
-                                        @(((Corso)p).Descrizione)
-                                        </p>
-                                        </div>
-                                        <p class="text mb-4 mb-md-0">
-                                            Linguaggi trattati: @(((Corso)p).LinguaggioTrattato)
-                                        </p>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                                        <div class="d-flex flex-row align-items-center mb-1">
-                                            <h4 class="mb-1 me-1" id="prezzo">@(((Corso)p).Costo) €</h4>
-                                        </div>
-                                        <h6 class="text-success">@(((Corso)p).Durata) Ore</h6>
-                                        <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
-                                       @* <form action="/Corso/FormModifica/@p.Id">*@
-                                        <div class="d-flex flex-column mt-4">
-                                            <a href="/Corso/FormModifica/@p.Id"><button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#modalModifica">Modifica</button></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </section>
-
-        <!-- Modal -->
-        
-    }
 
     <!-- footer -->
     <footer class="text-center text-white">

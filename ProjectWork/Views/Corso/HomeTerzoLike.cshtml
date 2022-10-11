@@ -16,8 +16,8 @@
 <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a href="#" class="navbar-brand">Wi<b>Win</b></a>
+   <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a href="#" class="navbar-brand">Win<b>Win</b></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -147,8 +147,9 @@
                                         </div>
                                         <h6 class="text-success">@(((Corso)p).Durata) Ore</h6>
                                         <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
+                                       @* <form action="/Corso/FormModifica/@p.Id">*@
                                         <div class="d-flex flex-column mt-4">
-                                            <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#modalModifica">Modifica</button>
+                                            <a href="/Corso/FormModifica/@p.Id"><button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#modalModifica">Modifica</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -159,86 +160,7 @@
         </section>
 
         <!-- Modal -->
-        <div class="modal fade" id="modalModifica" tabindex="-1" aria-labelledby="modalModifica" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifica corso</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        <!-- action da inserire -->
-                        <form action="" onsubmit="return ControlliNuovoCorso()">
-                            <div class="row g-2">
-                                <div class="col-md mb-4">
-                                    <div class="mb-3">
-                                        <label for="formFileSm" class="form-label">Copertina</label>
-                                        <input class="form-control form-control-sm" id="copertina" value="@(((Corso)p).Copertina)" type="text" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row g-2">
-                                <div class="col-md mb-4">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="nome" value="@(((Corso)p).Nome)" placeholder="Nome corso" required>
-                                        <label for="floatingInputGrid">Nome</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="autore" value="@(((Corso)p).Autore)" placeholder="Autore corso" required>
-                                        <label for="floatingInputGrid">Autore</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="linguaggio" value="@(((Corso)p).LinguaggioTrattato)" placeholder="Linguaggio trattato" required>
-                                        <label for="floatingInputGrid">Linguaggio trattato</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row g-2">
-                                <div class="col-md mb-4">
-                                    <div class="form-floating">
-                                        <input type="number" class="form-control" id="costo" value="@(((Corso)p).Costo)" placeholder="Costo" min="0" required>
-                                        <label for="floatingInputGrid">Costo</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md">
-                                    <div class="form-floating">
-                                        <input type="number" class="form-control" id="giorni" value="@(((Corso)p).Durata)" placeholder="Giorni" min="0" required>
-                                        <label for="floatingInputGrid">Giorni</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md">
-                                    <div class="form-floating">
-                                        <input type="number" class="form-control" id="lezioni" value="@(((Corso)p).NumeroLezioni)" placeholder="Numero lezioni" min="0" required>
-                                        <label for="floatingInputGrid">Numero lezioni</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-floating">
-                                <textarea class="form-control mb-4" placeholder="Descrizione corso" value="@(((Corso)p).Descrizione)" id="descrizione" required></textarea>
-                                <label for="floatingTextarea">Descrizione</label>
-                            </div>
-
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                        <button type="button" class="btn btn-primary">Modifica</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     }
 
     <!-- footer -->
