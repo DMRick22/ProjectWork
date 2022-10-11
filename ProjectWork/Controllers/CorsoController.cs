@@ -53,7 +53,7 @@ namespace ProjectWork.Controllers
                 }
                 return Redirect("/Corso/HomeAdmin");
             }
-            return Redirect("/Prenotazione/Error");
+            return Redirect("/Prenotazione/ErrorAdmin");
         }
 
         public IActionResult NuovoCorso(Dictionary<string, string> parametri)
@@ -66,7 +66,7 @@ namespace ProjectWork.Controllers
                     return Redirect("/Corso/HomeTerzo");
                 }
                 else
-                    return Redirect("/Prenotazione/Error");
+                    return Redirect("/Prenotazione/ErrorTerzo");
         }
 
         public IActionResult IMieiDettagli()
@@ -114,7 +114,7 @@ namespace ProjectWork.Controllers
             if (DaoCorso.GetInstance().Update(c))
                 return Redirect("/Corso/HomeTerzo");
             else
-                return Redirect("/Prenotazione/Error");
+                return Redirect("/Prenotazione/ErrorTerzo");
         }
     }
 }

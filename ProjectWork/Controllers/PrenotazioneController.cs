@@ -34,10 +34,20 @@ namespace ProjectWork.Controllers
                     }
                 }
             }
-            return Redirect($"/Prenotazione/Error");
+            return Redirect($"/Prenotazione/ErrorUser");
         }
 
-        public IActionResult Error()
+        public IActionResult ErrorUser()
+        {
+            return View();
+        }
+
+        public IActionResult ErrorTerzo()
+        {
+            return View();
+        }
+
+        public IActionResult ErrorAdmin()
         {
             return View();
         }
@@ -49,7 +59,7 @@ namespace ProjectWork.Controllers
                 return Redirect("/Prenotazione/ElencoOrdiniAmministratore");
             }
             else
-                return Content("/Prenotazione/Error");
+                return Content("/Prenotazione/ErrorAdmin");
         }
     }
 }
