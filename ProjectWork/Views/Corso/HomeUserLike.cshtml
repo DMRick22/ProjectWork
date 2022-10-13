@@ -91,7 +91,9 @@
                   <h6 class="text-success">@(((Corso)p).Durata) Ore</h6>
                   <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
                   <div class="d-flex flex-column mt-4">
-                    <button class="btn btn-warning btn-sm" type="button">Prenota</button>
+                    <form action="/Prenotazione/NuovaPrenotazione/@(((Corso)p).Id)" method="post"> 
+                    <button class="btn btn-warning btn-sm" button type="submit" onclick="return confirm('Procedere con la prenotazione del corso: @(((Corso)p).Nome)?')">Prenota</button>
+                     </form>
                   </div>
                 </div>
               </div>
