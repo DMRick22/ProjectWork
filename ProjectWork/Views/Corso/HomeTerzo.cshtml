@@ -24,17 +24,17 @@
         </button>
         <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
             <div class="navbar-nav">
-                <a href="/Corso/HomeTerzo" class="nav-item nav-link">Home</a>
+                <a href="/Corso/HomeTerzo" class="nav-item nav-link homeLink">Home</a>
                 <a href="/Corso/ContattiTerzo" class="nav-item nav-link">Contatti</a>
             </div>
             <div id="search-align" class="ml-auto mr-auto mt-3">
                 <form class="d-flex" role="search" action="/Corso/HomeTerzoLike/valore" method="get">
                     <input class="form-control me-2" type="search" placeholder="Nome / Autore Corso" name="valore" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
+                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Cerca</button>
                 </form>
             </div>
             <div class="navbar-nav action-buttons ml-auto">
-                <a href="/Login/Index" class="nav-item nav-link">Logout</a>
+                <a href="/Login/Index" class="btn btn-warning">Logout</a>
             </div>
         </div>
     </nav>
@@ -104,7 +104,7 @@
             </div>
 
             <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="submit">INSERISCI</button>
+                <button class="btn btn-warning" type="submit">INSERISCI</button>
             </div>
         </div>
     </form>
@@ -113,7 +113,7 @@
     @foreach (var p in @Model)
     {
         <section>
-            <div class="container py-5">
+            <div class="container py-5 corsoContainer">
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-12 col-xl-10">
                         <div class="card shadow-sm border rounded-3">
@@ -150,7 +150,7 @@
                                         <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
                                        @* <form action="/Corso/FormModifica/@p.Id">*@
                                         <div class="d-flex flex-column mt-4">
-                                            <a href="/Corso/FormModifica/@p.Id"><button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#modalModifica">Modifica</button></a>
+                                            <a href="/Corso/FormModifica/@p.Id"><button class="btn btn-warning btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#modalModifica">Modifica</button></a>
                                         </div>
                                     </div>
                                 </div>

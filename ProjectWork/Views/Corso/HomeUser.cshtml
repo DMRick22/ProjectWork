@@ -21,7 +21,7 @@
 	</button>
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<div class="navbar-nav">
-			<a href="/Corso/HomeUser" class="nav-item nav-link">Home</a>		
+			<a href="/Corso/HomeUser" class="nav-item nav-link homeLink">Home</a>		
 			<a href="/Corso/ContattiUser" class="nav-item nav-link">Contatti</a>
             <a href="/Prenotazione/ElencoOrdiniUtente" class="nav-item nav-link">Prenotazioni</a>
             <a href="/Corso/IMieiDettagli" class="nav-item nav-link">I Miei Dettagli</a>
@@ -29,11 +29,11 @@
         <div class="ml-auto mr-auto mt-3" id="search-align">
             <form class="d-flex" role="search" action="/Corso/HomeUserLike/valore" method="get">
                 <input class="form-control me-2" type="search" placeholder="Nome / Autore Corso" name="valore" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
+                <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Cerca</button>
             </form>
         </div>
 		<div class="navbar-nav action-buttons ml-auto">
-			<a href="/Login/Index" class="nav-item nav-link">Logout</a>
+			<a href="/Login/Index" class="btn btn-warning">Logout</a>
 		</div>
 	</div>
 </nav>
@@ -42,7 +42,7 @@
 @foreach(var p in @Model)
 {
 <section>
-    <div class="container py-5">
+    <div class="container py-5 corsoContainer">
       <div class="row justify-content-center mb-3 mt-10">
         <div class="col-md-12 col-xl-10" >
           <div class="card shadow-0 border rounded-3">
@@ -85,7 +85,7 @@
                   <h6 class="text">@(((Corso)p).NumeroLezioni) Lezioni</h6>
                   <div class="d-flex flex-column mt-4">
                       <form action="/Prenotazione/NuovaPrenotazione/@(((Corso)p).Id)" method="post"> 
-                    <button class="btn btn-primary btn-sm" button type="submit" onclick="return confirm('Procedere con la prenotazione del corso: @(((Corso)p).Nome)?')">Prenota</button>
+                    <button class="btn btn-warning btn-sm" button type="submit" onclick="return confirm('Procedere con la prenotazione del corso: @(((Corso)p).Nome)?')">Prenota</button>
                       </form>
                   </div>
                 </div>

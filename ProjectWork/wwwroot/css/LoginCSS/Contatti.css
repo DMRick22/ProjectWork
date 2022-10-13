@@ -123,7 +123,8 @@ a:hover, a:active {
 
 
 footer {
-    background-color: rgb(61, 132, 209);
+    background: rgb(195,134,34);
+    background: linear-gradient(21deg, rgba(195,134,34,1) 0%, rgba(253,216,45,1) 100%);
 }
 
 h2 {
@@ -139,4 +140,8 @@ h2 {
 
 .google-maps {
     margin: 25px;
+}
+
+.homeLink {
+    margin-left: 20px;
 }

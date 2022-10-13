@@ -5,8 +5,9 @@ body{
     background-color: rgb(238, 238, 238);
 }
 
-footer{
-    background-color: rgb(61, 132, 209);
+footer {
+    background: rgb(195,134,34);
+    background: linear-gradient(21deg, rgba(195,134,34,1) 0%, rgba(253,216,45,1) 100%);
 }
 
 .titoloCorso{
@@ -64,6 +65,15 @@ section
 #floatingTextarea {
     height: 120px;
 }
+
+.homeLink {
+    margin-left: 20px;
+}
+
+.corsoContainer {
+    max-width: 2000px;
+}
+
 
 
 

@@ -3,7 +3,8 @@
 }
 
 footer {
-    background-color: rgb(61, 132, 209);
+    background: rgb(195,134,34);
+    background: linear-gradient(21deg, rgba(195,134,34,1) 0%, rgba(253,216,45,1) 100%);
 }
 
 .titoloCorso {
@@ -49,6 +50,14 @@ footer {
     z-index: 1 !important;
     top: 0 !important;
     width: 100% !important;
+}
+
+.homeLink {
+    margin-left: 20px;
+}
+
+.corsoContainer {
+    max-width: 2000px;
 }
 
 
