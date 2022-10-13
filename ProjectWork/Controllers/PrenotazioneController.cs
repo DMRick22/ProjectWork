@@ -34,7 +34,7 @@ namespace ProjectWork.Controllers
                     }
                 }
             }
-            return Redirect($"/Prenotazione/ErrorUser");
+            return Redirect($"/Corso/HomeUserAlert");
         }
 
         public IActionResult ErrorUser()
@@ -57,6 +57,16 @@ namespace ProjectWork.Controllers
             if (DaoPrenotazione.GetInstance().RimuoviOreDopoEliminazione(id) && DaoPrenotazione.GetInstance().Delete(id))
             {
                 return Redirect("/Prenotazione/ElencoOrdiniAmministratore");
+            }
+            else
+                return Content("/Prenotazione/ErrorAdmin");
+        }
+
+        public IActionResult EliminaPrenotazioneUser(int id)
+        {
+            if (DaoPrenotazione.GetInstance().RimuoviOreDopoEliminazione(id) && DaoPrenotazione.GetInstance().Delete(id))
+            {
+                return Redirect("/Prenotazione/ElencoOrdiniUtente");
             }
             else
                 return Content("/Prenotazione/ErrorAdmin");

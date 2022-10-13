@@ -1,4 +1,4 @@
-﻿﻿@using ProjectWork.Models
+﻿﻿﻿@using ProjectWork.Models
 @model List<Utility.Entity>
 
 <html lang="en">
@@ -53,18 +53,20 @@
                     <tr>
                         <th scope="col">Numero Ordine</th>
                         <th scope="col">Data Iscrizione</th>
-                        <th scope="col">Corso</th> 
-                       
+                        <th scope="col">Corso</th>
+                        <th scope="col">Strumenti</th>
+
 
                     </tr>
                     @foreach (var p in @Model)
                     {
                         <tr>
                             <td>@(((Prenotazione)p).Id)</td>
-                            <td>@((((Prenotazione)p).DataPrenotazione).ToShortDateString())</td>
+                                <td>@((((Prenotazione)p).DataPrenotazione).ToShortDateString())</td>
                             <td><a href="/Corso/DettagliCorsoUser/@(((Prenotazione)p).IdCorsi)">@(((Prenotazione)p).IdCorsi)</a></td>
+                              <td><a href="/Prenotazione/EliminaPrenotazioneUser/@(((Prenotazione)p).Id)" onclick="return confirm('Procedere con la disiscrizione al corso:  @(((Prenotazione)p).IdCorsi) ?')">Disiscriviti</a>
                             <td>
-                        </tr>
+                         </tr>
 
                     }
                 </thead>

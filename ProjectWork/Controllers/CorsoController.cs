@@ -116,5 +116,10 @@ namespace ProjectWork.Controllers
             else
                 return Redirect("/Prenotazione/ErrorTerzo");
         }
+
+        public IActionResult HomeUserAlert()
+        {
+            return View(DaoCorso.GetInstance().Read());
+        }
     }
 }

@@ -42,3 +42,13 @@ footer {
 #floatingTextarea {
     height: 120px;
 }
+
+.navbar 
+{
+    position: fixed !important;
+    z-index: 1 !important;
+    top: 0 !important;
+    width: 100% !important;
+}
+
+

@@ -30,3 +30,42 @@ footer{
     margin-top: 1.20%;
 }
 
+.navbar
+{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+}
+
+section
+{
+    margin-top: 70px;
+}
+
+.formNuovoCorso {
+    background-color: white;
+    padding: 5%;
+    border-radius: 4px;
+    width: 928px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 4%;
+}
+
+.titoloNuovoCorso {
+    color: rgb(71, 71, 71);
+    text-align: center;
+    margin-top: 20px;
+}
+
+#floatingTextarea {
+    height: 120px;
+}
+
+
+
+
+
