@@ -1,4 +1,5 @@
-﻿using Utility;
+﻿using ProjectWork.Controllers;
+using Utility;
 
 namespace ProjectWork.Models
 {
@@ -22,12 +23,16 @@ namespace ProjectWork.Models
         {
             List<Entity> ris = new List<Entity>();
 
-            List<Dictionary<string, string>> tabella = db.Read("SELECT * FROM Corsi");
+            List<Dictionary<string, string>> tabella = db.Read("SELECT * FROM Corsi order by id desc");
+
+            int idutenti = LoginController.utenteLoggato.Id;
 
             foreach (Dictionary<string, string> riga in tabella)
             {
                 Corso c = new Corso();
                 c.FromDictionary(riga);
+
+                c.Prenotabile = (DaoPrenotazione.GetInstance().ControllaCorso(idutenti, c.Id));
 
                 ris.Add(c);
             }

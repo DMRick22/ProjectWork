@@ -48,6 +48,13 @@ namespace ProjectWork.Models
 
                 ris.Add(p);
             }
+
+            foreach (Prenotazione p in ris)
+            {
+                Dictionary<string, string> tab = db.ReadOne($" SELECT nome from corsi where id = {p.IdCorsi}");
+                p.Nome = tab["nome"];
+            }
+
             return ris;
         }
 
@@ -149,6 +156,18 @@ namespace ProjectWork.Models
                 return true;
             else
                 return false;
+        }
+
+
+        public Prenotazione PrenotazioneFromCorso(int idutenti, int idcorsi)
+        {
+
+            Dictionary<string, string> tabella = db.ReadOne($"SELECT * FROM Prenotazioni WHERE idUtenti = {idutenti} AND idCorsi = {idcorsi}");
+
+            Prenotazione p = new Prenotazione();
+            p.FromDictionary(tabella);
+
+            return p;
         }
     }
 }

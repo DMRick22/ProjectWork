@@ -15,5 +15,6 @@ namespace ProjectWork.Models
         public int Costo { get; set; }
         public string Categoria { get; set; }
         public string Descrizione { get; set; }
+        public bool Prenotabile { get; set; }
     }
 }

@@ -9,5 +9,6 @@ namespace ProjectWork.Models
         public DateTime DataPrenotazione { get; set; }
         public int IdUtenti { get; set; }
         public int IdCorsi { get; set; }
+        public string Nome { get; set; }
     }
 }

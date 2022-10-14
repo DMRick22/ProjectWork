@@ -60,13 +60,14 @@
 
                     @foreach (var p in @Model)
                     {
-                        <tr>
+                      <tr>
                             <td>@(((Prenotazione)p).Id)</td>
-                            <td>@((((Prenotazione)p).DataPrenotazione).ToShortDateString())</td>
-                            <td><a href="/Corso/DettagliCorsoUser/@(((Prenotazione)p).IdCorsi)">@(((Prenotazione)p).IdCorsi)</a></td>
-                            <td><a href="/Prenotazione/EliminaPrenotazioneUser/@(((Prenotazione)p).Id)" onclick="return confirm('Procedere con la disiscrizione al corso:  @(((Prenotazione)p).IdCorsi) ?')">Disiscriviti</a></td>
-                         </tr>
-
+                                <td>@((((Prenotazione)p).DataPrenotazione).ToShortDateString())</td>
+                                    <td><a href="/Corso/DettagliCorsoUser/@(((Prenotazione)p).IdCorsi)">@(((Prenotazione)p).Nome)</a></td>
+                          <!--<td><a href="/Corso/DettagliCorsoUser/@(((Prenotazione)p).IdCorsi)">@(((Prenotazione)p).IdCorsi)</a></td>-->
+                              <td><a href="/Prenotazione/EliminaPrenotazioneUser/@(((Prenotazione)p).Id)" onclick="return confirm('Procedere con la disiscrizione al corso:  @(((Prenotazione)p).IdCorsi) ?')">Disiscriviti</a>
+                            <td>
+                      </tr>  
                     }
                 </thead>
                 <tbody id='tableBody'></tbody>

@@ -71,5 +71,19 @@ namespace ProjectWork.Controllers
             else
                 return Content("/Prenotazione/ErrorAdmin");
         }
+
+        public IActionResult EliminaPrenotazioneFromCorso(int id)
+        {
+            int utenteLoggato = LoginController.utenteLoggato.Id;
+            Prenotazione p = DaoPrenotazione.GetInstance().PrenotazioneFromCorso(utenteLoggato, id);
+
+
+            if (DaoPrenotazione.GetInstance().RimuoviOreDopoEliminazione(p.Id) && DaoPrenotazione.GetInstance().Delete(p.Id))
+            {
+                return Redirect("/Corso/HomeUser");
+            }
+            else
+                return Content("/Prenotazione/ErrorAdmin");
+        }
     }
 }
